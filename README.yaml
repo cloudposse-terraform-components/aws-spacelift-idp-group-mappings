@@ -1,23 +1,53 @@
-name: "template"
+name: "spacelift/idp-group-mappings"
 
 # Canonical GitHub repo
-github_repo: "cloudposse-terraform-components/template"
+github_repo: "cloudposse-terraform-components/aws-spacelift-idp-group-mappings"
 
 # Short description of this project
 description: |-
-  Description of this component
+  This component is responsible for creating and managing the IdP group mappings within the Spacelift organization. It ensures that Identity Provider (IdP) groups are correctly mapped to specific roles across designated Spacelift spaces, enabling precise access control and role-based permissions.
 
 usage: |-
-  **Stack Level**: Regional or Test47
+  **Stack Level**: Global
 
   Here's an example snippet for how to use this component.
-  
+
   ```yaml
+  # stacks/catalog/spacelift/idp-group-mappings.yaml
   components:
     terraform:
-      foo:
+      idp-group-mappings:
+        metadata:
+          component: spacelift/idp-group-mappings
+        settings:
+          spacelift:
+            enabled: true
         vars:
-          enabled: true
+          spacelift_spaces_tenant_name: root
+          spacelift_spaces_environment_name: gbl
+          spacelift_spaces_stage_name: spacelift
+          spacelift_spaces_component_name: spaces
+
+          # These must match the group names from the IdP provider
+          idp-group-mappings:
+            spacelift-admin:
+              spacelift_role_name: "ADMIN"
+              spaces:
+                - dev
+                - staging
+                - prod
+            spacelift-writer:
+              spacelift_role_name: "WRITE"
+              spaces:
+                - dev
+                - staging
+                - prod
+            spacelift-reader:
+              spacelift_role_name: "READ"
+              spaces:
+                - dev
+                - staging
+                - prod
   ```
 
 include:
@@ -29,14 +59,15 @@ tags:
   - aws
   - components
   - terraform-components
-  - root
-  - geodesic
-  - reference-implementation
-  - reference-architecture
+  - spacelift
+  - idp
+  - identity-provider
+  - group-mappings
+  - access-control
 
 # Categories of this project
 categories:
-  - terraform-modules/root
+  - terraform-modules/spacelift
   - terraform-components
 
 # License of this project
@@ -45,8 +76,8 @@ license: "APACHE2"
 # Badges to display
 badges:
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse-terraform-components/template.svg?style=for-the-badge"
-    url: "https://github.com/cloudposse-terraform-components/template/releases/latest"
+    image: "https://img.shields.io/github/release/cloudposse-terraform-components/aws-spacelift-idp-group-mappings.svg?style=for-the-badge"
+    url: "https://github.com/cloudposse-terraform-components/aws-spacelift-idp-group-mappings/releases/latest"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/for-the-badge.svg"
     url: "https://slack.cloudposse.com"
@@ -55,9 +86,9 @@ references:
   - name: "Cloud Posse Documentation"
     description: "Complete documentation for the Cloud Posse solution"
     url: "https://docs.cloudposse.com"
-  - name: "Reference Architectures"
-    description: "Launch effortlessly with our turnkey reference architectures, built either by your team or ours."
-    url: "https://cloudposse.com/"
+  - name: "Spacelift IDP Group Mapping Documentation"
+    description: "Official Spacelift documentation for IDP group mapping"
+    url: "https://docs.spacelift.io/concepts/user-management/admin.html#idp-group-mapping"
 
 related:
 - name: "Cloud Posse Terraform Modules"
