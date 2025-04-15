@@ -142,6 +142,7 @@ Check out these related projects.
 For additional context, refer to some of these links.
 
 - [Cloud Posse Documentation](https://docs.cloudposse.com) - Complete documentation for the Cloud Posse solution
+- [Reference Architectures](https://cloudposse.com/) - Launch effortlessly with our turnkey reference architectures, built either by your team or ours.
 - [Spacelift IDP Group Mapping Documentation](https://docs.spacelift.io/concepts/user-management/admin.html#idp-group-mapping) - Official Spacelift documentation for IDP group mapping
 
 
