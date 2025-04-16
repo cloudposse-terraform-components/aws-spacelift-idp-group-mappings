@@ -65,11 +65,6 @@ tags:
   - group-mappings
   - access-control
 
-# Categories of this project
-categories:
-  - terraform-modules/spacelift
-  - terraform-components
-
 # License of this project
 license: "APACHE2"
 
