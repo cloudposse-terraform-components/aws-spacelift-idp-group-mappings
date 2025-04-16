@@ -24,7 +24,7 @@ variable "spacelift_spaces_component_name" {
 
 module "spaces" {
   source  = "cloudposse/stack-config/yaml//modules/remote-state"
-  version = "1.5.0"
+  version = "1.8.0"
 
   component   = var.spacelift_spaces_component_name
   environment = try(var.spacelift_spaces_environment_name, module.this.environment)
