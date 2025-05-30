@@ -3,5 +3,12 @@
 #
 # Order is important: the last matching pattern has the highest precedence
 
-# These owners will be the default owners for everything
-* @cloudposse-terraform-components/engineering @cloudposse-terraform-components/admins
+# Cloud Posse must review any changes to Makefiles
+**/Makefile   @cloudposse-terraform-components/engineering
+**/Makefile.* @cloudposse-terraform-components/engineering
+
+
+# Cloud Posse Admins must review all changes to CODEOWNERS, github configuration or the mergify configuration
+.github/*           @cloudposse-terraform-components/admins
+.github/mergify.yml @cloudposse-terraform-components/admins
+.github/CODEOWNERS  @cloudposse-terraform-components/admins
