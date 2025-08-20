@@ -1,20 +1,25 @@
 ---
 tags:
-  - component/spacelift/idp-group-mappings
-  - layer/spacelift
-  - provider/aws
-  - provider/spacelift
+  - terraform
+  - terraform-modules
+  - aws
+  - components
+  - terraform-components
+  - spacelift
+  - idp
+  - identity-provider
+  - group-mappings
+  - access-control
 ---
 
-# Component: `spacelift/idp-group-mappings`
+# Component: `group-mappings`
 
-This component is responsible for creating and managing the [IdP group mappings](https://docs.spacelift.io/concepts/user-management/admin.html#idp-group-mapping) within the Spacelift organization. It ensures that Identity Provider (IdP) groups are correctly mapped to specific roles across designated Spacelift spaces, enabling precise access control and role-based permissions.
-
+This component is responsible for creating and managing the IdP group mappings within the Spacelift organization. It ensures that Identity Provider (IdP) groups are correctly mapped to specific roles across designated Spacelift spaces, enabling precise access control and role-based permissions.
 ## Usage
 
 **Stack Level**: Global
 
-The following are example snippets of how to use this component:
+Here's an example snippet for how to use this component.
 
 ```yaml
 # stacks/catalog/spacelift/idp-group-mappings.yaml
@@ -27,26 +32,35 @@ components:
         spacelift:
           enabled: true
       vars:
+        spacelift_spaces_tenant_name: root
+        spacelift_spaces_environment_name: gbl
+        spacelift_spaces_stage_name: spacelift
+        spacelift_spaces_component_name: spaces
+
+        # These must match the group names from the IdP provider
         idp-group-mappings:
-          spacelift-devops-leads-admin:
+          spacelift-admin:
             spacelift_role_name: "ADMIN"
             spaces:
               - dev
-              - qa
-          spacelift-devops-eng-writer:
+              - staging
+              - prod
+          spacelift-writer:
             spacelift_role_name: "WRITE"
             spaces:
               - dev
-              - qa
-          spacelift-eng-reader:
+              - staging
+              - prod
+          spacelift-reader:
             spacelift_role_name: "READ"
             spaces:
               - dev
-              - qa
+              - staging
+              - prod
 ```
 
-<!-- prettier-ignore-start -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -106,5 +120,21 @@ components:
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | The ID of the component |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
+
+
+
+## References
+
+
+- [Cloud Posse Documentation](https://docs.cloudposse.com) - Complete documentation for the Cloud Posse solution
+
+- [Reference Architectures](https://cloudposse.com/) - Launch effortlessly with our turnkey reference architectures, built either by your team or ours.
+
+- [Spacelift IDP Group Mapping Documentation](https://docs.spacelift.io/concepts/user-management/admin.html#idp-group-mapping) - Official Spacelift documentation for IDP group mapping
+
+
+
+
+[<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-spacelift-idp-group-mappings&utm_content=)
+
