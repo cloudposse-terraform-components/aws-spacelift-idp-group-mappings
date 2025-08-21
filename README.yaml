@@ -1,12 +1,9 @@
 name: "spacelift/idp-group-mappings"
-
 # Canonical GitHub repo
 github_repo: "cloudposse-terraform-components/aws-spacelift-idp-group-mappings"
-
 # Short description of this project
 description: |-
   This component is responsible for creating and managing the IdP group mappings within the Spacelift organization. It ensures that Identity Provider (IdP) groups are correctly mapped to specific roles across designated Spacelift spaces, enabling precise access control and role-based permissions.
-
 usage: |-
   **Stack Level**: Global
 
@@ -49,10 +46,6 @@ usage: |-
                 - staging
                 - prod
   ```
-
-include:
-  - "docs/terraform.md"
-
 tags:
   - terraform
   - terraform-modules
@@ -64,10 +57,8 @@ tags:
   - identity-provider
   - group-mappings
   - access-control
-
 # License of this project
 license: "APACHE2"
-
 # Badges to display
 badges:
   - name: "Latest Release"
@@ -76,7 +67,6 @@ badges:
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/for-the-badge.svg"
     url: "https://slack.cloudposse.com"
-
 references:
   - name: "Cloud Posse Documentation"
     description: "Complete documentation for the Cloud Posse solution"
@@ -87,13 +77,16 @@ references:
   - name: "Spacelift IDP Group Mapping Documentation"
     description: "Official Spacelift documentation for IDP group mapping"
     url: "https://docs.spacelift.io/concepts/user-management/admin.html#idp-group-mapping"
-
+# Categories of this project
+categories:
+  - component/idp-group-mappings
+  - layer/spacelift
+  - provider/spacelift
 related:
-- name: "Cloud Posse Terraform Modules"
-  description: Our collection of reusable Terraform modules used by our reference architectures.
-  url: "https://docs.cloudposse.com/modules/"
-- name: "Atmos"
-  description: "Atmos is like docker-compose but for your infrastructure"
-  url: "https://atmos.tools"
-
+  - name: "Cloud Posse Terraform Modules"
+    description: Our collection of reusable Terraform modules used by our reference architectures.
+    url: "https://docs.cloudposse.com/modules/"
+  - name: "Atmos"
+    description: "Atmos is like docker-compose but for your infrastructure"
+    url: "https://atmos.tools"
 contributors: [] # If included generates contribs
